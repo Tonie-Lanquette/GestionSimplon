@@ -2,5 +2,5 @@
 #     RewriteEngine on
 
 #     RewriteCond %{THE_REQUEST} !^.*/public [NC]
-#     RewriteRule ^(.*)$ todolist/public/$1 [R=301,NE,L]
+#     RewriteRule ^(.*)$ gestionsimplon/public/$1 [R=301,NE,L]
 #  </IfModule>
