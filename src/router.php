@@ -10,10 +10,14 @@ $HomeController = new HomeController;
 
 $routeComposee = Routing::routeComposee($route);
 
-var_dump($routeComposee);
 switch ($route) {
     case HOME_URL:
 
-        header("location:" . HOME_URL . "Dashboard.php");
-        die;
+        if (!$HomeController->login()) {
+            $HomeController->index();
+        } else {
+            header("location:" . HOME_URL . "dashboard");
+            die;
+        };
+        break;
 }

@@ -12,8 +12,6 @@ final class Routing
         $routeComposee = rtrim($routeComposee, '/');
         $routeComposee = explode('/', $routeComposee);
 
-var_dump($routeComposee); //page introuvable
-
         for ($i = sizeof($routeComposee); $i < 4; $i++) {
             $routeComposee[$i] = NULL;
         }

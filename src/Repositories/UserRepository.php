@@ -3,6 +3,7 @@
 namespace src\Repositories;
 
 use PDO;
+use PDOException;
 use src\Models\Database;
 use src\Models\User;
 
@@ -44,7 +45,7 @@ class UserRepository
 
     public function getThisUserById(int $id): User
     {
-        $sql = "SELECT * FROM " . PREFIXE . "user WHERE id_user = :id;";
+        $sql = "SELECT * FROM " . PREFIXE . "user WHERE Id_user = :id;";
         $statement = $this->DB->prepare($sql);
         $statement->execute([
             ":id" => $id
@@ -56,7 +57,7 @@ class UserRepository
 
     public function getThisUserByMail(string $mail): User|bool
     {
-        $sql = "SELECT * FROM " . PREFIXE . "user WHERE mail = :mail;";
+        $sql = "SELECT * FROM " . PREFIXE . "user WHERE Mail = :mail;";
         $statement = $this->DB->prepare($sql);
         $statement->execute([
             ":mail" => $mail
@@ -64,5 +65,27 @@ class UserRepository
         $statement->setFetchMode(PDO::FETCH_CLASS, User::class);
         $retour = $statement->fetch();
         return $retour;
+    }
+
+    public function login(string $mail, string $password)
+    {
+
+        $hash = hash("whirlpool", $password);
+
+        try {
+            $sql = "SELECT * FROM " . PREFIXE . "user WHERE Mail = :mail AND password_user = :password;";
+            $statement = $this->DB->prepare($sql);
+            $retour = $statement->execute([
+                ":mail" => $mail,
+                ":password" => $hash
+            ]);
+            return $retour;
+        } catch (PDOException $error) {
+            var_dump($error);
+        }
+        while ($row = $retour->fetch(\PDO::FETCH_ASSOC)) {
+            $user = new User($row);
+        }
+        return $user;
     }
 }

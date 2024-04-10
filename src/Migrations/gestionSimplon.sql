@@ -42,7 +42,7 @@ CREATE TABLE gestion_cours(
         Debut    Datetime NOT NULL ,
         Fin      Datetime NOT NULL ,
         Code     Int NOT NULL ,
-        Id_promo Int
+        Id_promo Int NOT NULL
 	,CONSTRAINT gestion_cours_PK PRIMARY KEY (Id_cours)
 
 	,CONSTRAINT gestion_cours_gestion_promo_FK FOREIGN KEY (Id_promo) REFERENCES gestion_promo(Id_promo)
