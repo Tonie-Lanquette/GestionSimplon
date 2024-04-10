@@ -3,7 +3,7 @@
 include __DIR__ . '/Includes/Header.php';
 
 ?>
-<p>hello world</p>
+<p>Dashboard</p>
 
 <?php
 
