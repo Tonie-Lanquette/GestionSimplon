@@ -1,7 +1,20 @@
 <?php
 include __DIR__ . '/Includes/Header.php';
+
 ?>
-<div class="flex h-lvh justify-center items-center">
+<div class="flex border-b mt-5">
+    <div id="dashboardAccueil" onclick=" dashboardAccueil()" class="-mb-px mr-1 ml-5">
+        <button class="bg-white mx-2 p-2 inline-block border-l border-t border-r">Accueil</buttonp>
+    </div>
+    <div id="dashboardPromotions" onclick="dashboardPromotions()" class="mr-1 ">
+        <button class=" bg-white mx-2 p-2 inline-block ">Promotions</button>
+    </div>
+</div>
+
+
+
+<!-- 
+<div class=" flex h-lvh justify-center items-center">
 
     <div class="flex flex-col justify-center w-full mx-5 h-1/2 px-14 bg-gray-200 justify-evenly sm:min-w-96 sm:w-1/4">
         <h1 class="capitalize font-semibold text-4xl text-center">bienvenue</h1>
@@ -17,12 +30,12 @@ include __DIR__ . '/Includes/Header.php';
             <input id="password" name="password" type="password" autocomplete="password" required class="block w-full bg-white border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-400 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6 indent-3 passwordInput">
         </div>
 
-
+        <div id="error" class="flex h-10 bg-red-200 border-2 border-red-400 rounded-md justify-center items-center text-red-700 hidden"></div>
         <button onclick="loginAccount()" class="self-center w-1/2 justify-center rounded-md bg-blue-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-700 uppercase text-white text-s font-semibold">Connexion</button>
 
 
 
-    </div>
+    </div> -->
 
 
 

@@ -73,7 +73,7 @@ class UserRepository
         $hash = hash("whirlpool", $password);
 
         try {
-            $sql = "SELECT * FROM " . PREFIXE . "user WHERE Mail = :mail AND password_user = :password;";
+            $sql = "SELECT * FROM " . PREFIXE . "user WHERE Mail = :mail AND Password = :password;";
             $statement = $this->DB->prepare($sql);
             $retour = $statement->execute([
                 ":mail" => $mail,
