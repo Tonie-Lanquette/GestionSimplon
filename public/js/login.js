@@ -1,4 +1,6 @@
-function loginAccount() {
+
+
+async function loginAccount() {
 
     let password = document.querySelector('.passwordInput').value;
     let email = document.querySelector('.emailInput').value;
@@ -6,9 +8,10 @@ function loginAccount() {
     if(email.length > 10 && email.length < 200){
         if(password.length > 7 && password.length < 50){
             let userInfos = {
-                PasswordUser : password,
-                EmailUser : email
+                Password : password,
+                Mail : email
             }
+          
             let params = {
                 method: "POST",
                 headers: {
@@ -16,17 +19,37 @@ function loginAccount() {
                 },
                 body: JSON.stringify(userInfos),
             };
-            fetch("/login", params)
-                .then((res) => res.text())
-                .then((data)=> {
-                    location.href = data;
-                }).catch((error) => {
-                    console.log(error);
-                });
+
+            let request = await
+            fetch("http://gestionsimplon/login", params)
+            let data  = await request.json
+            console.log(data);
+                // .then((response) => console.log(response.status,response))
+                // .then((data)=> {
+                //     console.log(response);
+                //     // window.location.href = HOME_URL.data
+                //     // header.location = data;
+                //     console.log(data);
+                    
+                // }).catch((error) => {
+                //     console.log(error);
+                // });
+            //     if(){
+
+            //     }else{
+            //         let error = document.getElementById("error")
+            // error.innerHTML = "<p>Email ou mot de passe incorrect</p>"
+            // error.classList.remove('hidden');}
         } else {
-            console.log("erreur password");
+            let error = document.getElementById("error")
+            error.innerHTML = "<p>Longueur du mot de passe incorrect</p>"
+            error.classList.remove('hidden');
+            
         }
     } else {
-        console.log("erreur email");
+         let error = document.getElementById("error")
+            error.innerHTML = "<p>Le format du mail est incorrect</p>"
+            error.classList.remove('hidden');
     }
 }
+ 

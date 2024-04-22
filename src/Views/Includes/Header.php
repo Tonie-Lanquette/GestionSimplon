@@ -12,7 +12,13 @@
         <div class="flex w-full h-12 bg-gray-200 p-3 justify-between font-semibold">
 
             <p class="uppercase">simplon</p>
+            <?php
+            if (!empty($_SESSION)) {
+                echo "<p class='capitalize'>deconnexion</p>";
+            } else {
+                echo "<p class='capitalize'>connexion</p>";
+            }
 
-            <p class="capitalize">connexion</p>
+            ?>
 
         </div>
