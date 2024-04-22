@@ -2,18 +2,11 @@
 include __DIR__ . '/Includes/Header.php';
 
 ?>
-<div class="flex border-b mt-5">
-    <div id="dashboardAccueil" onclick=" dashboardAccueil()" class="-mb-px mr-1 ml-5">
-        <button class="bg-white mx-2 p-2 inline-block border-l border-t border-r">Accueil</buttonp>
-    </div>
-    <div id="dashboardPromotions" onclick="dashboardPromotions()" class="mr-1 ">
-        <button class=" bg-white mx-2 p-2 inline-block ">Promotions</button>
-    </div>
-</div>
 
 
 
-<!-- 
+
+
 <div class=" flex h-lvh justify-center items-center">
 
     <div class="flex flex-col justify-center w-full mx-5 h-1/2 px-14 bg-gray-200 justify-evenly sm:min-w-96 sm:w-1/4">
@@ -35,7 +28,7 @@ include __DIR__ . '/Includes/Header.php';
 
 
 
-    </div> -->
+    </div>
 
 
 

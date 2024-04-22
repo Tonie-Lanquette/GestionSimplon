@@ -14,30 +14,30 @@ $routeComposee = Routing::routeComposee($route);
 switch ($route) {
     case HOME_URL:
 
-        if (!$HomeController->login()) {
+        // if (!$HomeController->login()) {
             $HomeController->index();
-            echo "vous n'êtes pas connecté";
-            die;
-        } else {
-            header("location:" . HOME_URL . "dashboard");
-            die;
-        };
-        break;
+        // } else {
+        //     header("location:" . HOME_URL . "dashboard");
+        // };
+        // break;
 
     case HOME_URL . 'login':
+        if ($methode === "POST") {
+            $data = file_get_contents("php://input");
+            $user = json_decode($data, true);
 
-        if ($HomeController->login()) {
-            header("location:" . HOME_URL . "dashboard");
-            die;
-        } else {
-            header("location:" . HOME_URL . "erreur=connexion");
-            die;
-        };
+            $email = htmlspecialchars(strip_tags(trim($user["Mail"])));
+            $password = htmlspecialchars(strip_tags(trim($user["Password"])));
+            $HomeController->login($email, $password);
+            // mes ajouts
+
+            echo json_encode($HomeController);
+
+            // echo 'dashboard';
+        }
         break;
 
     case HOME_URL . 'dashboard':
         $HomeController->pageDashboard();
         break;
-
-        
 }

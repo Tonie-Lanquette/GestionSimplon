@@ -1,6 +1,6 @@
 
 
-function loginAccount() {
+async function loginAccount() {
 
     let password = document.querySelector('.passwordInput').value;
     let email = document.querySelector('.emailInput').value;
@@ -19,13 +19,27 @@ function loginAccount() {
                 },
                 body: JSON.stringify(userInfos),
             };
-            fetch("/login", params)
-                .then((response) => console.log(response.status))
+
+            let request = await
+            fetch("http://gestionsimplon/login", params)
+            let data  = await request.json
+            console.log(data);
+                // .then((response) => console.log(response.status,response))
                 // .then((data)=> {
-                //     header.location= data;
+                //     console.log(response);
+                //     // window.location.href = HOME_URL.data
+                //     // header.location = data;
+                //     console.log(data);
+                    
                 // }).catch((error) => {
                 //     console.log(error);
                 // });
+            //     if(){
+
+            //     }else{
+            //         let error = document.getElementById("error")
+            // error.innerHTML = "<p>Email ou mot de passe incorrect</p>"
+            // error.classList.remove('hidden');}
         } else {
             let error = document.getElementById("error")
             error.innerHTML = "<p>Longueur du mot de passe incorrect</p>"

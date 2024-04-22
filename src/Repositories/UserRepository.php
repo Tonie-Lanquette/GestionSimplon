@@ -22,7 +22,7 @@ class UserRepository
     public function createUser(User $user)
     {
         $password = hash("whirlpool", $user->getPassword());
-        $sql = "INSERT INTO " . PREFIXE . "simplon VALUES (NULL,?,?,?,?);";
+        $sql = "INSERT INTO " . PREFIXE . "user VALUES (NULL,?,?,?,?);";
         $statement = $this->DB->prepare($sql);
         $retour = $statement->execute([
             $password,
@@ -33,7 +33,7 @@ class UserRepository
         ]);
         return $retour;
     }
-
+ 
     public function getAllUser(): array
     {
         $sql = "SELECT * FROM " . PREFIXE . "user;";

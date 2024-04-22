@@ -1,13 +1,8 @@
 <?php
-
 include __DIR__ . '/Includes/Header.php';
-include __DIR__ . 'Includes/NavBarr.php';
-include __DIR__ . 'Includes/Acceuil.php';
+include __DIR__ . '/Includes/NavBarr.php';
 
-?>
-<p>Dashboard</p>
-
-<?php
+echo '
+<div><p>Cours du jour</p></div>';
 
 include __DIR__ . '/Includes/Footer.php';
-?>
