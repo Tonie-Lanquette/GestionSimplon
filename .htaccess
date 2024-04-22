@@ -1,6 +1,7 @@
-#  <IfModule mod_rewrite.c>
-#     RewriteEngine on
+<IfModule mod_rewrite.c>
 
-#     RewriteCond %{THE_REQUEST} !^.*/public [NC]
-#     RewriteRule ^(.*)$ todolist/public/$1 [R=301,NE,L]
-#  </IfModule>
+  RewriteEngine on
+  RewriteCond %{THE_REQUEST} !^GET.*/public [NC]
+  RewriteRule ^(.*)$ /public/$1 [R=301,NE,L]
+
+</IfModule>
